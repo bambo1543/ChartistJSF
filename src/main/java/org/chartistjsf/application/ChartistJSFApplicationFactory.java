@@ -15,9 +15,9 @@
  */
 package org.chartistjsf.application;
 
-import javax.faces.application.Application;
-import javax.faces.application.ApplicationFactory;
-import javax.faces.application.ApplicationWrapper;
+import jakarta.faces.application.Application;
+import jakarta.faces.application.ApplicationFactory;
+import jakarta.faces.application.ApplicationWrapper;
 
 /**
  * This application factory takes care that the {@link ChartistJSFApplication} is properly initialized.

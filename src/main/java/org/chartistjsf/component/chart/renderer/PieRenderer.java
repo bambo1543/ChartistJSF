@@ -3,8 +3,8 @@ package org.chartistjsf.component.chart.renderer;
 import java.io.IOException;
 import java.util.Iterator;
 
-import javax.faces.context.FacesContext;
-import javax.faces.context.ResponseWriter;
+import jakarta.faces.context.FacesContext;
+import jakarta.faces.context.ResponseWriter;
 
 import org.chartistjsf.component.chart.Chart;
 import org.chartistjsf.model.chart.PieChartModel;

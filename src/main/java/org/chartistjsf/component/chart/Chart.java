@@ -20,14 +20,14 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Map;
 
-import javax.faces.application.ResourceDependencies;
-import javax.faces.application.ResourceDependency;
-import javax.faces.component.UIComponentBase;
-import javax.faces.component.UINamingContainer;
-import javax.faces.context.FacesContext;
-import javax.faces.event.AjaxBehaviorEvent;
-import javax.faces.event.BehaviorEvent;
-import javax.faces.event.FacesEvent;
+import jakarta.faces.application.ResourceDependencies;
+import jakarta.faces.application.ResourceDependency;
+import jakarta.faces.component.UIComponentBase;
+import jakarta.faces.component.UINamingContainer;
+import jakarta.faces.context.FacesContext;
+import jakarta.faces.event.AjaxBehaviorEvent;
+import jakarta.faces.event.BehaviorEvent;
+import jakarta.faces.event.FacesEvent;
 
 import org.chartistjsf.ChartistJSF;
 import org.chartistjsf.model.chart.ChartModel;
@@ -44,7 +44,7 @@ import org.primefaces.event.ItemSelectEvent;
 		@ResourceDependency(library = "chartistjsf", name = "chartist-js/chartist.min.js"),
 		@ResourceDependency(library = "chartistjsf", name = "chartistjsf.js") })
 public class Chart extends UIComponentBase implements org.primefaces.component.api.Widget,
-		javax.faces.component.behavior.ClientBehaviorHolder {
+		jakarta.faces.component.behavior.ClientBehaviorHolder {
 	public static final String COMPONENT_TYPE = "org.chartistjsf.component.Chart";
 
 	protected enum PropertyKeys {

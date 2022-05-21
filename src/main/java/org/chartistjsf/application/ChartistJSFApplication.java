@@ -15,8 +15,8 @@
  */
 package org.chartistjsf.application;
 
-import javax.faces.application.Application;
-import javax.faces.application.ApplicationWrapper;
+import jakarta.faces.application.Application;
+import jakarta.faces.application.ApplicationWrapper;
 
 /**
  * <p>

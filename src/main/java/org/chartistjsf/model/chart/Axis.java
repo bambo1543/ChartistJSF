@@ -18,7 +18,7 @@ package org.chartistjsf.model.chart;
 import java.io.IOException;
 import java.io.Serializable;
 
-import javax.faces.context.ResponseWriter;
+import jakarta.faces.context.ResponseWriter;
 
 /**
  * @author Hatem Alimam

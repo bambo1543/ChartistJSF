@@ -15,9 +15,9 @@ package org.chartistjsf;
 import java.util.Set;
 import java.util.logging.Logger;
 
-import javax.servlet.ServletContainerInitializer;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
+import jakarta.servlet.ServletContainerInitializer;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletException;
 
 /**
  * <p>

@@ -2,7 +2,7 @@ package org.chartistjsf.component.chart.renderer;
 
 import java.io.IOException;
 
-import javax.faces.context.FacesContext;
+import jakarta.faces.context.FacesContext;
 
 import org.chartistjsf.component.chart.Chart;
 
