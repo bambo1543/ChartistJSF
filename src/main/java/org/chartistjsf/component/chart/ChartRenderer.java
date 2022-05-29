@@ -102,6 +102,7 @@ public class ChartRenderer extends CoreRenderer {
 		writer.write("id:'" + clientId + "'");
 		writer.write(",type:'" + type + "'");
 		writer.write(",showTooltip:" + chart.getModel().isShowTooltip());
+//		writer.write(",tooltipLabelFnc: " + "function(value) {return moment(value).format('MMM D');}");
 		if (chart.getModel().getResponsiveOptions() != null)
 			writer.write(", responsiveOptions: " + chart.getModel().getResponsiveOptions());
 		chartistRenderer.render(context, chart);

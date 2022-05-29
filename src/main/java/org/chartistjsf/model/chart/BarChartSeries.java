@@ -15,11 +15,14 @@
  */
 package org.chartistjsf.model.chart;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author Hatem Alimam
  * @since 0.1
  */
-public class BarChartSeries extends ChartSeries {
+public class BarChartSeries extends ChartSeries<List<Number>> {
 
 	/**
 	 * 
@@ -27,6 +30,11 @@ public class BarChartSeries extends ChartSeries {
 	private static final long serialVersionUID = -6036024411116468354L;
 
 	public BarChartSeries() {
+		super(new ArrayList<>());
+	}
+
+	public void set(Number number) {
+		data.add(number);
 	}
 
 }

@@ -26,6 +26,21 @@ import jakarta.faces.context.ResponseWriter;
  */
 public abstract class Axis implements Serializable {
 
+	public enum Type {
+
+		AUTO_SCALE_AXIS("Chartist.AutoScaleAxis"), FIXED_SCALE_AXIS("Chartist.FixedScaleAxis"), STEP_AXIS("Chartist.StepAxis");
+
+		private String name;
+
+		Type(String name) {
+			this.name = name;
+		}
+
+		public String getName() {
+			return name;
+		}
+	}
+
 	/**
 	 * 
 	 */
@@ -37,8 +52,18 @@ public abstract class Axis implements Serializable {
 	private int yLabelOffset = 0;
 	private boolean showLabel = true;
 	private boolean showGrid = true;
+
+	private int roundDigits = -1;
+	private String dateFormat;
 	private String labelInterpolationFnc;
 	private int scaleMinSpace = 20;
+
+	private Type type = Type.AUTO_SCALE_AXIS;
+
+	private int divisor = 5;
+
+	private Double high;
+	private Double low;
 
 	/**
 	 * The offset of the labels to the chart area
@@ -194,6 +219,54 @@ public abstract class Axis implements Serializable {
 	 */
 	public void setScaleMinSpace(int scaleMinSpace) {
 		this.scaleMinSpace = scaleMinSpace;
+	}
+
+	public Type getType() {
+		return type;
+	}
+
+	public void setType(Type type) {
+		this.type = type;
+	}
+
+	public int getDivisor() {
+		return divisor;
+	}
+
+	public void setDivisor(int divisor) {
+		this.divisor = divisor;
+	}
+
+	public String getDateFormat() {
+		return dateFormat;
+	}
+
+	public void setDateFormat(String dateFormat) {
+		this.dateFormat = dateFormat;
+	}
+
+	public int getRoundDigits() {
+		return roundDigits;
+	}
+
+	public void setRoundDigits(int roundDigits) {
+		this.roundDigits = roundDigits;
+	}
+
+	public Double getHigh() {
+		return high;
+	}
+
+	public void setHigh(Double high) {
+		this.high = high;
+	}
+
+	public Double getLow() {
+		return low;
+	}
+
+	public void setLow(Double low) {
+		this.low = low;
 	}
 
 	public abstract void render(ResponseWriter writer, AxisType axisType) throws IOException;

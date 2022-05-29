@@ -16,14 +16,13 @@
 package org.chartistjsf.model.chart;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author Hatem Alimam
  * @since 0.1
  */
-public class ChartSeries implements Serializable {
+public class ChartSeries<T> implements Serializable {
 
 	/**
 	 * 
@@ -32,13 +31,14 @@ public class ChartSeries implements Serializable {
 
 	private String name;
 
-	private List<Number> data = new ArrayList<Number>();
+	protected T data;
 
 	private AxisType xaxis;
 
 	private AxisType yaxis;
 
-	public ChartSeries() {
+	public ChartSeries(T data) {
+		this.data = data;
 	}
 
 	public ChartSeries(String name) {
@@ -53,16 +53,12 @@ public class ChartSeries implements Serializable {
 		this.name = name;
 	}
 
-	public List<Number> getData() {
+	public T getData() {
 		return data;
 	}
 
-	public void setData(List<Number> data) {
+	public void setData(T data) {
 		this.data = data;
-	}
-
-	public void set(Number number) {
-		this.data.add(number);
 	}
 
 	public AxisType getXaxis() {

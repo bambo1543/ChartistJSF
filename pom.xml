@@ -110,8 +110,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.2</version>
 				<configuration>
-					<source>${javase.version}</source>
-					<target>${javase.version}</target>
+					<source>16</source>
+					<target>16</target>
 				</configuration>
 			</plugin>
 

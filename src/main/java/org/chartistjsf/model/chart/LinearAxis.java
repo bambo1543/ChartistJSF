@@ -51,16 +51,32 @@ public class LinearAxis extends Axis {
 
 		writer.write(", showLabel: " + this.getShowLabel());
 		writer.write(", showGrid: " + this.getShowGrid());
+		writer.write(", divisor: " + this.getDivisor());
+		writer.write(", type: " + this.getType().getName());
 
 		if (this.getAxisPosition() != null) {
 			writer.write(", position: '" + this.getAxisPosition() + "'");
 		}
 
-		if (getLabelInterpolationFnc() != null && !getLabelInterpolationFnc().equals(""))
+		if(getRoundDigits() > -1) {
+			double multiplier = Math.pow(10, getRoundDigits());
+			writer.write(", labelInterpolationFnc: " + "function (value) {return Math.round(value* "+multiplier+") /"+multiplier+";}");
+		} else if (getDateFormat() != null && !getDateFormat().equals("")) {
+			writer.write(", labelInterpolationFnc: " + "function(value) {return moment(value).format('" + getDateFormat() + "');}");
+		} else if (getLabelInterpolationFnc() != null && !getLabelInterpolationFnc().equals("")) {
 			writer.write(", labelInterpolationFnc: " + getLabelInterpolationFnc());
+		}
 
-		if (axisType.equals(AxisType.Y))
+		if (axisType.equals(AxisType.Y)) {
 			writer.write(", scaleMinSpace: " + getScaleMinSpace());
+		}
+
+		if(getHigh() != null) {
+			writer.write(", high: " + getHigh());
+		}
+		if(getLow() != null) {
+			writer.write(", low: " + getLow());
+		}
 
 		writer.write("}");
 	}

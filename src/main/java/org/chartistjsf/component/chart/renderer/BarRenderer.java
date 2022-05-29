@@ -2,6 +2,7 @@ package org.chartistjsf.component.chart.renderer;
 
 import java.io.IOException;
 import java.util.Iterator;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -53,16 +54,18 @@ public class BarRenderer extends BaseChartistRenderer {
 			writer.write("{");
 			writer.write("name:\"" + EscapeUtils.forJavaScript(series.getName()) + "\"");
 			writer.write(", data:[");
-			for (Iterator<Number> numbersIter = series.getData().iterator(); numbersIter.hasNext();) {
-				Number number = numbersIter.next();
-				String numberAsString = (number != null) ? number.toString() : "null";
+			if(series.getData() instanceof List) {
+				List<Number> data = (List<Number>) series.getData();
+				for (Iterator<Number> numbersIter = data.iterator(); numbersIter.hasNext();) {
+					Number number = numbersIter.next();
+					String numberAsString = (number != null) ? number.toString() : "null";
 
-				writer.write(numberAsString);
+					writer.write(numberAsString);
 
-				if (numbersIter.hasNext()) {
-					writer.write(",");
+					if (numbersIter.hasNext()) {
+						writer.write(",");
+					}
 				}
-
 			}
 			writer.write("]");
 			writer.write("}");
