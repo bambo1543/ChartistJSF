@@ -15,10 +15,7 @@
  */
 package org.chartistjsf.model.chart;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author Hatem Alimam
@@ -38,7 +35,7 @@ public class CartesianChartModel extends ChartModel {
 	private boolean showGridBackground = false;
 
 	public CartesianChartModel() {
-		series = new ArrayList<ChartSeries>();
+		series = new ArrayList<>();
 		createAxes();
 	}
 
@@ -163,4 +160,28 @@ public class CartesianChartModel extends ChartModel {
 		this.showGridBackground = showGridBackground;
 	}
 
+	public void updateYAxisRangeByChartSeries() {
+		Number high = 0;
+		Number low = 0;
+		for (ChartSeries chartSeries : series) {
+			high = chartSeries.getHigh().doubleValue() > high.doubleValue() ? chartSeries.getHigh() : high;
+			low = chartSeries.getLow().doubleValue() < low.doubleValue() ? chartSeries.getLow() : low;
+		}
+		Axis yAxis = getAxis(AxisType.Y);
+		if(high.doubleValue() > 0) {
+			yAxis.setHigh(high.doubleValue() * 1.1);
+		} else if(high.doubleValue() == 0) {
+			yAxis.setHigh(1.0);
+		} else {
+			yAxis.setHigh(high.doubleValue() * 0.9);
+		}
+
+		if(low.doubleValue() > 0) {
+			yAxis.setLow(low.doubleValue() * 0.9);
+		} else if(low.doubleValue() == 0) {
+			yAxis.setLow(-1.0);
+		} else {
+			yAxis.setLow(low.doubleValue() * 1.1);
+		}
+	}
 }

@@ -15,6 +15,9 @@
  */
 package org.chartistjsf.model.chart;
 
+import java.util.Collections;
+import java.util.Comparator;
+
 /**
  * @author Hatem Alimam
  * @since 0.1
@@ -33,9 +36,7 @@ public class LineChartModel extends CartesianChartModel {
 	private boolean lineSmooth = true;
 	private boolean fullWidth = false;
 
-	public LineChartModel() {
-
-	}
+	public LineChartModel() {}
 
 	public LineChartModel(CartesianChartModel cartesianChartModel) {
 		super(cartesianChartModel);

@@ -77,4 +77,11 @@ public class ChartSeries<T> implements Serializable {
 		this.yaxis = yaxis;
 	}
 
+	public Number getHigh() {
+		return 0;
+	}
+	public Number getLow() {
+		return 0;
+	}
+
 }
