@@ -105,15 +105,15 @@
 		</resources>
 		<plugins>
 			<!-- Set the Java compiler versions -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.2</version>
-				<configuration>
-					<source>16</source>
-					<target>16</target>
-				</configuration>
-			</plugin>
+<!--			<plugin>-->
+<!--				<groupId>org.apache.maven.plugins</groupId>-->
+<!--				<artifactId>maven-compiler-plugin</artifactId>-->
+<!--				<version>3.2</version>-->
+<!--				<configuration>-->
+<!--					<source>16</source>-->
+<!--					<target>16</target>-->
+<!--				</configuration>-->
+<!--			</plugin>-->
 
 			<!-- Configure the jar with the binaries -->
 			<plugin>
