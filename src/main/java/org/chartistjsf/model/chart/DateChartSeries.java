@@ -13,9 +13,15 @@ public class DateChartSeries extends ChartSeries<Map<Date, Number>> {
     }
 
     public Number getHigh() {
+        if(data.values().isEmpty()) {
+            return 0D;
+        }
         return Collections.max(data.values(), Comparator.comparingDouble(Number::doubleValue));
     }
     public Number getLow() {
+        if(data.values().isEmpty()) {
+            return 0D;
+        }
         return Collections.min(data.values(), Comparator.comparingDouble(Number::doubleValue));
     }
 
