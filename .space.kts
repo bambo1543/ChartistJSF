@@ -8,6 +8,8 @@
 //    }
 //}
 
+//mvn versions:set -DnewVersion=4.1.${'$'}JB_SPACE_EXECUTION_NUMBER
+
 job("Build, run tests, publish") {
     container(displayName = "Run publish script", image = "maven:3.8.7-openjdk-18-slim") {
         // url of a Space Packages repository
@@ -18,7 +20,7 @@ job("Build, run tests, publish") {
             content = """
                 echo Build and publish artifacts...
                 set -e -x -u
-                mvn versions:set -DnewVersion=4.0.${'$'}JB_SPACE_EXECUTION_NUMBER
+                mvn versions:set -DnewVersion=4.0.1-SNAPSHOT
                 mvn clean deploy -s settings.xml \
                     -DrepositoryUrl=${'$'}REPOSITORY_URL \
                     -DspaceUsername=${'$'}JB_SPACE_CLIENT_ID \
